@@ -14,3 +14,22 @@ body {
   width: 100%;
   border: 1px solid black;
 }
+
+.bikecolor {
+  width: 10px;
+  height: 10px;
+}
+
+.leathercolor {
+  width: 10px;
+  height: 10px;
+}
+
+.wheels_picker {
+  width: 10px;
+  height: 10px;
+}
+
+img {
+  width: 50px;
+}
