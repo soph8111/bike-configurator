@@ -36,7 +36,7 @@ function chooseOptions(){
       let bikeColor = event.target.style.backgroundColor;
       setBikeColor(frame, bikeColor);
     });
-  })
+  });
 
   // HJUL
   // Vælg farve til hjul
@@ -47,6 +47,7 @@ function chooseOptions(){
       //Sæt wheelColor til at være det klikkede elements farve
       setWheelColor(frontWheel, rearWheel, wheelColor);
     });
+  });
 
     //Vælg farve på håndtag og sadel
     document.querySelectorAll(".leathercolor").forEach(color => {
@@ -56,14 +57,11 @@ function chooseOptions(){
         //Sæt wheelColor til at være det klikkede elements farve
         setLeatherColor(saddle1, saddle2, handle1, handle2, leatherColor);
       });
-  })
-
-
-  
+  });
 
   // ADD ONS
   document.querySelectorAll(".option").forEach(option => option.addEventListener("click", toggleAddOns));
-})
+
 
 function toggleAddOns(event){
   const target = event.currentTarget;
@@ -87,7 +85,6 @@ function toggleAddOns(event){
     // Lav addOn element og tilføj til selected items liste
     const addOnElement = createAddOnElement(addOn);
     document.querySelector("#selected ul").append(addOnElement);
-
   }
 
   // Hvis addOn er off
@@ -104,7 +101,7 @@ function toggleAddOns(event){
     document.querySelector(`#selected [data-feature='${addOn}']`).remove();
   }
 }
-
+}
 // Farver stellet efter hvilken farve der er klikket på
 function setBikeColor(frame, bikeColor){
   frame.style.fill = bikeColor;
@@ -116,6 +113,7 @@ function setWheelColor(frontWheel, rearWheel, wheelColor){
   rearWheel.style.fill = wheelColor;
 }
 
+//Farver styr + sadel efter hvilken læderfarver der er klikket på
 function setLeatherColor(saddle1, saddle2, handle1, handle2, leatherColor) {
   saddle1.style.fill = leatherColor;
   saddle2.style.fill = leatherColor;
@@ -135,4 +133,4 @@ function createAddOnElement(addOn){
 
   return li;
 }
-}
+  
