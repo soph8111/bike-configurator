@@ -2,9 +2,6 @@
 
 document.addEventListener("DOMContentLoaded", start);
 
-const frontWheel = document.querySelector("#forhjul path");
-const rearWheel = document.querySelector("#baghjul path");
-
 const saddle1 = document.querySelector("#saddel_et path");
 const saddle2 = document.querySelector("#saddel_to path");
 const handle1 = document.querySelector("#styr_et path");
@@ -14,10 +11,10 @@ async function start() {
   let response = await fetch("cykelconfiguator.svg");
   let mySvg = await response.text();
   document.querySelector("#product-preview").innerHTML = mySvg;
-  chooseColor();
+  chooseOptions();
 }
 
-function chooseColor(){
+function chooseOptions(){
   const frame = document.querySelector("#stel path");
   const frontWheel = document.querySelector("#forhjul path");
   const rearWheel = document.querySelector("#baghjul path");
@@ -35,8 +32,6 @@ function chooseColor(){
       setWheelColor(frontWheel, rearWheel, wheelColor);
     });
   })
-
-  
 }
 
 function setBikeColor(frame, bikeColor){
