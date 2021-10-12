@@ -72,6 +72,9 @@ function toggleAddOns(event){
 
     //Fjerne hide fra product view - så addOn vises
     document.querySelector(`[data-feature='${addOn}']`).classList.remove("hide");
+
+    // Lav addOn element og tilføj til selected items liste
+    const addOnElement = createAddOnElement(addOn);
   }
 
   // Hvis addOn er off
@@ -97,3 +100,16 @@ function setWheelColor(frontWheel, rearWheel, wheelColor){
   rearWheel.style.fill = wheelColor;
 }
 
+// Lav addOn element
+function createAddOnElement(addOn){
+  const li = document.createElement("li");
+  li.dataset.feature = feature;
+
+  const img = document.createElement("img");
+  img.src = `images/feature_${feature}.png`;
+  img.alt = capitalize(feature);
+
+  li.append(img);
+
+  return li;
+}
