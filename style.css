@@ -1,0 +1,16 @@
+body {
+  background-color: #e0d6ca;
+}
+
+#configurator {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
+#left {
+}
+
+#right {
+  width: 100%;
+  border: 1px solid black;
+}
