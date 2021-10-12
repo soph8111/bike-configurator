@@ -4,15 +4,16 @@ body {
 
 #configurator {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: auto 325px;
 }
 
 #left {
 }
 
 #right {
-  width: 100%;
-  border: 1px solid black;
+  border-radius: 30px;
+  background: #f2ebe2;
+  padding: 20px;
 }
 
 .bikecolor {
@@ -25,7 +26,7 @@ body {
   height: 10px;
 }
 
-.wheels_picker {
+.wheelcolor {
   width: 10px;
   height: 10px;
 }
