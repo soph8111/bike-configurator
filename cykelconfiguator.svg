@@ -61,16 +61,16 @@
   <g id="skygge_styr_to_Image" data-name="skygge_styr_to Image">
     <image id="skygge_styr_to_Image-2" data-name="skygge_styr_to Image" width="97" height="37" transform="translate(929.75 37)" xlink:href="cykelconfiguator15.png"/>
   </g>
-  <g id="lygte_Image" data-name="lygte Image">
+  <g id="lygte_Image" data-name="lygte Image" class="hide" data-feature="light">
     <image id="lygte_Image-2" data-name="lygte Image" width="68" height="65" transform="translate(1304.75 146)" xlink:href="cykelconfiguator16.png"/>
   </g>
-  <g id="klokke_Image" data-name="klokke Image">
+  <g id="klokke_Image" data-name="klokke Image" class="hide" data-feature="bell">
     <image id="klokke_Image-2" data-name="klokke Image" width="39" height="26" transform="translate(1048.75 7)" xlink:href="cykelconfiguator17.png"/>
   </g>
-  <g id="støtteben_Image" data-name="støtteben Image">
+  <g id="støtteben_Image" data-name="støtteben Image" class="hide" data-feature="kickstand">
     <image id="støtteben_Image-2" data-name="støtteben Image" width="76" height="155" transform="translate(638.75 604)" xlink:href="cykelconfiguator18.png"/>
   </g>
-  <g id="kurv_Image" data-name="kurv Image">
+  <g id="kurv_Image" data-name="kurv Image" class="hide" data-feature="basket">
     <image id="kurv_Image-2" data-name="kurv Image" width="294" height="489" transform="translate(1037.75 18)" xlink:href="cykelconfiguator19.png"/>
   </g>
 </svg>
