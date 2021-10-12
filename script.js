@@ -9,7 +9,7 @@ async function start() {
   chooseColor();
 }
 
-function chooseColor(){
+function chooseColor() {
   const frontWheel = document.querySelector("#forhjul");
   const rearWheel = document.querySelector("#baghjul");
   const frame = document.querySelector("#stel");
@@ -18,14 +18,12 @@ function chooseColor(){
   const handle1 = document.querySelector("#styr_et");
   const handle2 = document.querySelector("#styr_to");
 
-  document.querySelectorAll(".bikecolor").forEach(color => {
+  document.querySelectorAll(".bikecolor").forEach((color) => {
     let bikeColor = color.style.backgroundColor;
     color.addEventListener("click", setBikeColor(color, bikeColor));
-  } )
+  });
 }
 
-function setBikeColor(color, bikeColor){
+function setBikeColor(color, bikeColor) {
   color.style.backgroundColor = bikeColor;
 }
-
-
