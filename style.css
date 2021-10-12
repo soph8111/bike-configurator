@@ -5,9 +5,33 @@ body {
 #configurator {
   display: grid;
   grid-template-columns: auto 325px;
+  padding-top: 20px;
+  padding-right: 20px;
 }
 
 #left {
+  align-self: end;
+}
+
+#selected {
+  grid-area: features;
+  background-color: #f2ebe2;
+  height: 100px;
+  width: 92%;
+  border-radius: 30px;
+  margin: auto;
+}
+
+#selected ul {
+  list-style-type: none;
+}
+
+#selected ul li {
+  display: inline-block;
+}
+
+#selected ul li img {
+  width: 3em;
 }
 
 #right {
@@ -16,20 +40,33 @@ body {
   padding: 20px;
 }
 
-#right img {
-  width: 50px;
-  height: 100%;
-}
-
 .heading {
   font-family: "Marcellus", serif;
   color: #9ea89e;
-  font-size: 1.05rem;
+  font-size: 1.1rem;
 }
 
 .wrapper {
   display: flex;
   gap: 15px;
+}
+
+figure {
+  margin: 0;
+  width: 85px;
+  height: 85px;
+  background-color: rgb(105, 103, 100);
+  display: grid;
+  border: none;
+}
+
+.wrapper img {
+  width: 70px;
+  place-self: center;
+}
+
+#right img.option[data-feature="bell"] {
+  width: 30px;
 }
 
 .bikecolor,
@@ -42,4 +79,10 @@ body {
 
 .hide {
   display: none;
+}
+
+.choosen {
+  border: 4px solid #9ea89e;
+  border-radius: 50%;
+  margin: -4px;
 }
