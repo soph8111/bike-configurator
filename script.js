@@ -9,11 +9,6 @@ const addOnFeatures = {
   kickstand: false
 };
 
-const saddle1 = document.querySelector("#saddel_et path");
-const saddle2 = document.querySelector("#saddel_to path");
-const handle1 = document.querySelector("#styr_et path");
-const handle2 = document.querySelector("#styr_to path");
-
 async function start() {
   let response = await fetch("cykelconfiguator.svg");
   let mySvg = await response.text();
@@ -28,6 +23,10 @@ function chooseOptions(){
   const frame = document.querySelector("#stel path");
   const frontWheel = document.querySelector("#forhjul path");
   const rearWheel = document.querySelector("#baghjul path");
+  const saddle1 = document.querySelector("#saddel_et path");
+  const saddle2 = document.querySelector("#saddel_to path");
+  const handle1 = document.querySelector("#styr_et path");
+  const handle2 = document.querySelector("#styr_to path");
 
   // Vælg farve til stellet
   document.querySelectorAll(".bikecolor").forEach(color => {
@@ -48,11 +47,23 @@ function chooseOptions(){
       //Sæt wheelColor til at være det klikkede elements farve
       setWheelColor(frontWheel, rearWheel, wheelColor);
     });
+
+    //Vælg farve på håndtag og sadel
+    document.querySelectorAll(".leathercolor").forEach(color => {
+      // Klik på læder
+      color.addEventListener("click", event => {
+        let leatherColor = event.target.style.backgroundColor;
+        //Sæt wheelColor til at være det klikkede elements farve
+        setLeatherColor(saddle1, saddle2, handle1, handle2, leatherColor);
+      });
   })
+
+
+  
 
   // ADD ONS
   document.querySelectorAll(".option").forEach(option => option.addEventListener("click", toggleAddOns));
-}
+})
 
 function toggleAddOns(event){
   const target = event.currentTarget;
@@ -105,6 +116,13 @@ function setWheelColor(frontWheel, rearWheel, wheelColor){
   rearWheel.style.fill = wheelColor;
 }
 
+function setLeatherColor(saddle1, saddle2, handle1, handle2, leatherColor) {
+  saddle1.style.fill = leatherColor;
+  saddle2.style.fill = leatherColor;
+  handle1.style.fill = leatherColor;
+  handle2.style.fill = leatherColor;
+}
+
 // Lav addOn element
 function createAddOnElement(addOn){
   const li = document.createElement("li");
@@ -116,4 +134,5 @@ function createAddOnElement(addOn){
   li.append(img);
 
   return li;
+}
 }
