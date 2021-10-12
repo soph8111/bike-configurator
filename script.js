@@ -2,6 +2,13 @@
 
 document.addEventListener("DOMContentLoaded", start);
 
+const addOnFeatures = {
+  bell: false,
+  basket: false,
+  light: false,
+  kickstand: false
+};
+
 const saddle1 = document.querySelector("#saddel_et path");
 const saddle2 = document.querySelector("#saddel_to path");
 const handle1 = document.querySelector("#styr_et path");
@@ -15,6 +22,8 @@ async function start() {
 }
 
 function chooseOptions(){
+
+  // STEL
   // Konstanter for ting der kan vælges farve på (stellet, bagjhul/forhjul)
   const frame = document.querySelector("#stel path");
   const frontWheel = document.querySelector("#forhjul path");
@@ -30,6 +39,7 @@ function chooseOptions(){
     });
   })
 
+  // HJUL
   // Vælg farve til hjul
   document.querySelectorAll(".wheelcolor").forEach(color => {
     // Klik på hjul
@@ -39,6 +49,41 @@ function chooseOptions(){
       setWheelColor(frontWheel, rearWheel, wheelColor);
     });
   })
+
+  // ADD ONS
+  document.querySelectorAll(".option").forEach(option => option.addEventListener("click", toggleAddOns));
+}
+
+function toggleAddOns(event){
+  const target = event.currentTarget;
+  const addOn = target.dataset.feature;
+  
+  // Toggle addOn true/false
+  if (addOn) {
+    addOnFeatures[addOn] = !addOnFeatures[addOn];
+  }
+
+  // Hvis addOn er on
+  if (addOnFeatures[addOn]){
+    console.log(`${addOn} is on`);
+
+    // Marker valgte addON
+    target.classList.add(".chosen");
+
+    //Fjerne hide fra product view - så addOn vises
+    document.querySelector(`[data-feature='${addOn}']`).classList.remove("hide");
+  }
+
+  // Hvis addOn er off
+  else {
+    console.log(`${addOn} is off`);
+
+    //Fjerne markering af valgte addON
+    target.classList.remove(".chosen");
+
+    //Sætte hide på product view - skjule addOn
+    document.querySelector(`[data-feature='${addOn}']`).classList.add("hide");
+  }
 }
 
 // Farver stellet efter hvilken farve der er klikket på
