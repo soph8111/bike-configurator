@@ -49,7 +49,6 @@ function chooseOptions(){
     // Klik på hjul
     color.addEventListener("click", event => {
       let wheelColor = event.target.style.backgroundColor;
-      event.target.classList.add("chosen");
       //Sæt wheelColor til at være det klikkede elements farve
       setWheelColor(frontWheel, rearWheel, wheelColor);
     });
