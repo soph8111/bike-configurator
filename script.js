@@ -61,19 +61,11 @@ function chooseOptions() {
         //Sæt wheelColor til at være det klikkede elements farve
         setLeatherColor(saddle1, saddle2, handle1, handle2, leatherColor);
       });
-<<<<<<< HEAD
     });
 
     // ADD ONS
     document.querySelectorAll(".option").forEach((option) => option.addEventListener("click", toggleAddOns));
   });
-=======
-  });
-
-  // ADD ONS
-  document.querySelectorAll(".option").forEach(option => option.addEventListener("click", toggleAddOns));
-
->>>>>>> 6edc87eb88592387ef22495d1a2c98f92a45304c
 
   function toggleAddOns(event) {
     const target = event.currentTarget;
@@ -84,19 +76,13 @@ function chooseOptions() {
       addOnFeatures[addOn] = !addOnFeatures[addOn];
     }
 
-<<<<<<< HEAD
     // Hvis addOn er on
     if (addOnFeatures[addOn]) {
       console.log(`${addOn} is on`);
-=======
-    // Marker valgte addON
-    target.classList.add("chosen");
->>>>>>> 6edc87eb88592387ef22495d1a2c98f92a45304c
 
       // Marker valgte addON
       target.classList.add(".chosen");
 
-<<<<<<< HEAD
       //Fjerne hide fra product view - så addOn vises
       document.querySelector(`[data-feature='${addOn}']`).classList.remove("hide");
 
@@ -104,24 +90,13 @@ function chooseOptions() {
       const addOnElement = createAddOnElement(addOn);
       document.querySelector("#selected ul").append(addOnElement);
     }
-=======
-    // Lav addOn element og tilføj til selected items liste
-    const addOnElement = createAddOnElement(addOn);
-    document.querySelector("#selected ul").append(addOnElement);
-  }
->>>>>>> 6edc87eb88592387ef22495d1a2c98f92a45304c
 
     // Hvis addOn er off
     else {
       console.log(`${addOn} is off`);
 
-<<<<<<< HEAD
       //Fjerne markering af valgte addON
       target.classList.remove(".chosen");
-=======
-    //Fjerne markering af valgte addON
-    target.classList.remove("chosen");
->>>>>>> 6edc87eb88592387ef22495d1a2c98f92a45304c
 
       //Sætte hide på product view - skjule addOn
       document.querySelector(`[data-feature='${addOn}']`).classList.add("hide");
@@ -130,20 +105,11 @@ function chooseOptions() {
       document.querySelector(`#selected [data-feature='${addOn}']`).remove();
     }
   }
-<<<<<<< HEAD
 
   // Farver stellet efter hvilken farve der er klikket på
   function setBikeColor(frame, bikeColor) {
     frame.style.fill = bikeColor;
   }
-=======
-}
-}
-// Farver stellet efter hvilken farve der er klikket på
-function setBikeColor(frame, bikeColor){
-  frame.style.fill = bikeColor;
-}
->>>>>>> 6edc87eb88592387ef22495d1a2c98f92a45304c
 
   // Farver hjulene efter hvilken farve der er klikket på
   function setWheelColor(frontWheel, rearWheel, wheelColor) {
@@ -151,22 +117,12 @@ function setBikeColor(frame, bikeColor){
     rearWheel.style.fill = wheelColor;
   }
 
-<<<<<<< HEAD
   function setLeatherColor(saddle1, saddle2, handle1, handle2, leatherColor) {
     saddle1.style.fill = leatherColor;
     saddle2.style.fill = leatherColor;
     handle1.style.fill = leatherColor;
     handle2.style.fill = leatherColor;
   }
-=======
-//Farver styr + sadel efter hvilken læderfarver der er klikket på
-function setLeatherColor(saddle1, saddle2, handle1, handle2, leatherColor) {
-  saddle1.style.fill = leatherColor;
-  saddle2.style.fill = leatherColor;
-  handle1.style.fill = leatherColor;
-  handle2.style.fill = leatherColor;
-}
->>>>>>> 6edc87eb88592387ef22495d1a2c98f92a45304c
 
   // Lav addOn element
   function createAddOnElement(addOn) {
@@ -178,12 +134,6 @@ function setLeatherColor(saddle1, saddle2, handle1, handle2, leatherColor) {
 
     li.append(img);
 
-<<<<<<< HEAD
     return li;
   }
 }
-=======
-  return li;
-}
-  
->>>>>>> 6edc87eb88592387ef22495d1a2c98f92a45304c
