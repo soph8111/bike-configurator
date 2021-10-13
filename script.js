@@ -10,7 +10,7 @@ const addOnFeatures = {
 };
 
 async function start() {
-  let response = await fetch("cykelconfiguator.svg");
+  let response = await fetch("cykelconfiguator-01.svg");
   let mySvg = await response.text();
   document.querySelector("#product-preview").innerHTML = mySvg;
   chooseOptions();
@@ -65,7 +65,7 @@ function chooseOptions() {
 
     // ADD ONS
     document.querySelectorAll(".option").forEach((option) => option.addEventListener("click", toggleAddOns));
-  });
+  };
 
   function toggleAddOns(event) {
     const target = event.currentTarget;
