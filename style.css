@@ -19,7 +19,7 @@ body {
 #selected {
   grid-area: features;
   background-color: #f2ebe2;
-  height: 100px;
+  height: 122px;
   width: 92%;
   border-radius: 30px;
   margin: auto;
@@ -30,6 +30,7 @@ body {
 #selected ul {
   list-style-type: none;
   align-self: center;
+  margin-top: 10px;
 }
 
 #selected ul li {
@@ -38,6 +39,11 @@ body {
 
 #selected ul li img {
   width: 60px;
+}
+
+#selected .heading {
+  margin-left: 50px;
+  margin-bottom: 0;
 }
 
 #right {
@@ -60,6 +66,11 @@ body {
 .wrapper {
   display: flex;
   gap: 8px;
+}
+
+.wrapper div,
+.wrapper img {
+  cursor: pointer;
 }
 
 figure {
