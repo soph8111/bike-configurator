@@ -28,6 +28,11 @@ function chooseOptions(){
   const handle1 = document.querySelector("#styr_et path");
   const handle2 = document.querySelector("#styr_to path");
 
+  // Sætter start-farver for cykel
+  setBikeColor(frame, "#D6E5E8");
+  setWheelColor(frontWheel, rearWheel, "#ffffff");
+  setLeatherColor(saddle1, saddle2, handle1, handle2, "#b14e2c");
+
   // Vælg farve til stellet
   document.querySelectorAll(".bikecolor").forEach(color => {
     // Klik på farve
@@ -44,6 +49,7 @@ function chooseOptions(){
     // Klik på hjul
     color.addEventListener("click", event => {
       let wheelColor = event.target.style.backgroundColor;
+      event.target.classList.add("chosen");
       //Sæt wheelColor til at være det klikkede elements farve
       setWheelColor(frontWheel, rearWheel, wheelColor);
     });
@@ -77,7 +83,7 @@ function toggleAddOns(event){
     console.log(`${addOn} is on`);
 
     // Marker valgte addON
-    target.classList.add(".chosen");
+    target.classList.add("chosen");
 
     //Fjerne hide fra product view - så addOn vises
     document.querySelector(`[data-feature='${addOn}']`).classList.remove("hide");
@@ -92,7 +98,7 @@ function toggleAddOns(event){
     console.log(`${addOn} is off`);
 
     //Fjerne markering af valgte addON
-    target.classList.remove(".chosen");
+    target.classList.remove("chosen");
 
     //Sætte hide på product view - skjule addOn
     document.querySelector(`[data-feature='${addOn}']`).classList.add("hide");
