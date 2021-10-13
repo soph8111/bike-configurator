@@ -6,7 +6,7 @@ const addOnFeatures = {
   bell: false,
   basket: false,
   light: false,
-  kickstand: false
+  kickstand: false,
 };
 
 async function start() {
@@ -16,8 +16,7 @@ async function start() {
   chooseOptions();
 }
 
-function chooseOptions(){
-
+function chooseOptions() {
   // STEL
   // Konstanter for ting der kan vælges farve på (stellet, bagjhul/forhjul)
   const frame = document.querySelector("#stel path");
@@ -29,110 +28,106 @@ function chooseOptions(){
   const handle2 = document.querySelector("#styr_to path");
 
   // Vælg farve til stellet
-  document.querySelectorAll(".bikecolor").forEach(color => {
+  document.querySelectorAll(".bikecolor").forEach((color) => {
     // Klik på farve
-    color.addEventListener("click", event => {
+    color.addEventListener("click", (event) => {
       //Sæt bikeColor til at være det klikkede elements farve
       let bikeColor = event.target.style.backgroundColor;
       setBikeColor(frame, bikeColor);
     });
-  })
+  });
 
   // HJUL
   // Vælg farve til hjul
-  document.querySelectorAll(".wheelcolor").forEach(color => {
+  document.querySelectorAll(".wheelcolor").forEach((color) => {
     // Klik på hjul
-    color.addEventListener("click", event => {
+    color.addEventListener("click", (event) => {
       let wheelColor = event.target.style.backgroundColor;
       //Sæt wheelColor til at være det klikkede elements farve
       setWheelColor(frontWheel, rearWheel, wheelColor);
     });
 
     //Vælg farve på håndtag og sadel
-    document.querySelectorAll(".leathercolor").forEach(color => {
+    document.querySelectorAll(".leathercolor").forEach((color) => {
       // Klik på læder
-      color.addEventListener("click", event => {
+      color.addEventListener("click", (event) => {
         let leatherColor = event.target.style.backgroundColor;
         //Sæt wheelColor til at være det klikkede elements farve
         setLeatherColor(saddle1, saddle2, handle1, handle2, leatherColor);
       });
-  })
+    });
 
+    // ADD ONS
+    document.querySelectorAll(".option").forEach((option) => option.addEventListener("click", toggleAddOns));
+  });
 
-  
+  function toggleAddOns(event) {
+    const target = event.currentTarget;
+    const addOn = target.dataset.feature;
 
-  // ADD ONS
-  document.querySelectorAll(".option").forEach(option => option.addEventListener("click", toggleAddOns));
-})
+    // Toggle addOn true/false
+    if (addOn) {
+      addOnFeatures[addOn] = !addOnFeatures[addOn];
+    }
 
-function toggleAddOns(event){
-  const target = event.currentTarget;
-  const addOn = target.dataset.feature;
-  
-  // Toggle addOn true/false
-  if (addOn) {
-    addOnFeatures[addOn] = !addOnFeatures[addOn];
+    // Hvis addOn er on
+    if (addOnFeatures[addOn]) {
+      console.log(`${addOn} is on`);
+
+      // Marker valgte addON
+      target.classList.add(".chosen");
+
+      //Fjerne hide fra product view - så addOn vises
+      document.querySelector(`[data-feature='${addOn}']`).classList.remove("hide");
+
+      // Lav addOn element og tilføj til selected items liste
+      const addOnElement = createAddOnElement(addOn);
+      document.querySelector("#selected ul").append(addOnElement);
+    }
+
+    // Hvis addOn er off
+    else {
+      console.log(`${addOn} is off`);
+
+      //Fjerne markering af valgte addON
+      target.classList.remove(".chosen");
+
+      //Sætte hide på product view - skjule addOn
+      document.querySelector(`[data-feature='${addOn}']`).classList.add("hide");
+
+      // Find addOn element og fjern fra selected items liste
+      document.querySelector(`#selected [data-feature='${addOn}']`).remove();
+    }
   }
 
-  // Hvis addOn er on
-  if (addOnFeatures[addOn]){
-    console.log(`${addOn} is on`);
-
-    // Marker valgte addON
-    target.classList.add(".chosen");
-
-    //Fjerne hide fra product view - så addOn vises
-    document.querySelector(`[data-feature='${addOn}']`).classList.remove("hide");
-
-    // Lav addOn element og tilføj til selected items liste
-    const addOnElement = createAddOnElement(addOn);
-    document.querySelector("#selected ul").append(addOnElement);
-
+  // Farver stellet efter hvilken farve der er klikket på
+  function setBikeColor(frame, bikeColor) {
+    frame.style.fill = bikeColor;
   }
 
-  // Hvis addOn er off
-  else {
-    console.log(`${addOn} is off`);
-
-    //Fjerne markering af valgte addON
-    target.classList.remove(".chosen");
-
-    //Sætte hide på product view - skjule addOn
-    document.querySelector(`[data-feature='${addOn}']`).classList.add("hide");
-
-    // Find addOn element og fjern fra selected items liste
-    document.querySelector(`#selected [data-feature='${addOn}']`).remove();
+  // Farver hjulene efter hvilken farve der er klikket på
+  function setWheelColor(frontWheel, rearWheel, wheelColor) {
+    frontWheel.style.fill = wheelColor;
+    rearWheel.style.fill = wheelColor;
   }
-}
 
-// Farver stellet efter hvilken farve der er klikket på
-function setBikeColor(frame, bikeColor){
-  frame.style.fill = bikeColor;
-}
+  function setLeatherColor(saddle1, saddle2, handle1, handle2, leatherColor) {
+    saddle1.style.fill = leatherColor;
+    saddle2.style.fill = leatherColor;
+    handle1.style.fill = leatherColor;
+    handle2.style.fill = leatherColor;
+  }
 
-// Farver hjulene efter hvilken farve der er klikket på 
-function setWheelColor(frontWheel, rearWheel, wheelColor){
-  frontWheel.style.fill = wheelColor;
-  rearWheel.style.fill = wheelColor;
-}
+  // Lav addOn element
+  function createAddOnElement(addOn) {
+    const li = document.createElement("li");
+    li.dataset.feature = addOn;
 
-function setLeatherColor(saddle1, saddle2, handle1, handle2, leatherColor) {
-  saddle1.style.fill = leatherColor;
-  saddle2.style.fill = leatherColor;
-  handle1.style.fill = leatherColor;
-  handle2.style.fill = leatherColor;
-}
+    const img = document.createElement("img");
+    img.src = `${addOn}.png`;
 
-// Lav addOn element
-function createAddOnElement(addOn){
-  const li = document.createElement("li");
-  li.dataset.feature = addOn;
+    li.append(img);
 
-  const img = document.createElement("img");
-  img.src = `${addOn}.png`;
-
-  li.append(img);
-
-  return li;
-}
+    return li;
+  }
 }
