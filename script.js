@@ -47,6 +47,12 @@ function chooseOptions(){
   document.querySelectorAll(".bikecolor").forEach(color => {
     // Klik på farve
     color.addEventListener("click", event => {
+      // Fjern chosen fra andre farver
+      document.querySelectorAll(".bikecolor").forEach(color => {
+        color.classList.remove("chosen");
+      })
+      // Tilføj class chosen til valgte farve
+      event.target.classList.add("chosen");
       //Sæt bikeColor til at være det klikkede elements farve
       let bikeColor = event.target.style.backgroundColor;
       setBikeColor(frame, bikeColor);
@@ -64,6 +70,13 @@ function chooseOptions(){
    document.querySelectorAll(".leathercolor").forEach(color => {
     // Klik på læder
     color.addEventListener("click", event => {
+      // Fjern chosen fra andre farver læder
+      document.querySelectorAll(".leathercolor").forEach(color => {
+        color.classList.remove("chosen");
+      })
+      // Tilføj class chosen til valgte farve
+      event.target.classList.add("chosen");
+
       let leatherColor = event.target.style.backgroundColor;
       //Sæt wheelColor til at være det klikkede elements farve
       setLeatherColor(saddle1, saddle2, handle1, handle2, leatherColor);
@@ -75,6 +88,12 @@ function chooseOptions(){
   document.querySelectorAll(".wheelcolor").forEach(color => {
     // Klik på hjul
     color.addEventListener("click", event => {
+      // Fjern chosen fra andre farver
+      document.querySelectorAll(".wheelcolor").forEach(color => {
+        color.classList.remove("chosen");
+      })
+      // Tilføj class chosen til valgte farve
+      event.target.classList.add("chosen");
       let wheelColor = event.target.style.backgroundColor;
       //Sæt wheelColor til at være det klikkede elements farve
       setWheelColor(frontWheel, rearWheel, wheelColor);
