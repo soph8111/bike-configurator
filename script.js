@@ -19,7 +19,6 @@ const handleFeatures = {
   handle2: false
 };
 
-
 async function start() {
   let response = await fetch("cykelconfiguator.svg");
   let mySvg = await response.text();
@@ -89,50 +88,43 @@ function chooseOptions(){
 function toggleSaddle(event){
   const target = event.currentTarget;
   const saddle = target.dataset.feature;
-
-   // Toggle saddle true/false
+   
+  // Toggle saddle true/false
    if (saddle) {
     saddleFeatures[saddle] = !saddleFeatures[saddle];
   }
 
-  // Hvis saddel er on
-  if (saddleFeatures[saddle]){
-    console.log(`${saddle} is on`);
+    // Find oprindelige valgte saddel
+    let theSaddle = document.querySelector("#saddle_picker .chosen").dataset.feature ;
+    let theFormerlyChosen = document.querySelector(`#selected [data-feature='${theSaddle}']`)
 
-    // Marker valgte saddel
+    // Remove chosen 
+    document.querySelectorAll(".saddle_option").forEach(saddle => {
+      saddle.classList.remove("chosen");
+
+    });
+
+    // Tilføj chosen til valgte saddel
     target.classList.add("chosen");
-
-    //Fjern anden valgt saddel
-
+    
+    // Tilføj hide på alle sadler på product view
+    document.querySelectorAll(".saddle").forEach(saddle => {
+      saddle.classList.add("hide")
+    });
+      
     //Fjerne hide fra product view - så addOn vises
     document.querySelector(`[data-feature='${saddle}']`).classList.remove("hide");
-
-    // Sæt hide på anden saddel i productview
+    
 
     // Lav addOn element og tilføj til selected items liste
-    const saddleElement = createAddOnElement(saddle);
+    const saddleElement = createSelectedItemElement(saddle);
     document.querySelector("#selected ul").append(saddleElement);
 
     // Animation på tilføj til selected items
     animateAdd(target, saddleElement);
-  }
-
-  // Hvis saddel er off
-  else {
-    console.log(`${saddle} is off`);
-
-    //Fjerne markering af valgte addON
-    target.classList.remove("chosen");
-
-    //Sætte hide på product view - skjule addOn
-    document.querySelector(`[data-feature='${saddle}']`).classList.add("hide");
-
-    // Find addOn element og fjern fra selected items liste
-    const saddleElement = document.querySelector(`#selected [data-feature='${saddle}']`);
-
-    // Animation på fjern fra selected items
-    animateRemove(target, saddleElement);
-  }
+    
+    // Animation på fjern selected item på i forvejen valgt 
+     animateRemove(saddleElement,theFormerlyChosen);
 }
 
 function toggelHandle(event){
@@ -144,46 +136,39 @@ function toggelHandle(event){
     handleFeatures[handle] = !handleFeatures[handle];
   }
 
-  // Hvis saddel er on
-  if (handleFeatures[handle]){
-    console.log(`${handle} is on`);
+  // Find oprindelige valgte håndtag
+  let theHandle = document.querySelector("#handle_picker .chosen").dataset.feature ;
+  let theFormerlyChosen = document.querySelector(`#selected [data-feature='${theHandle}']`)
 
-    // Marker valgte saddel
+  // Remove chosen 
+  document.querySelectorAll(".handle_option").forEach(handle => {
+    handle.classList.remove("chosen");
+
+  });
+  
+    // Marker valgte håndtag
     target.classList.add("chosen");
 
-    //Fjern anden valgt saddel
+    // Tilføj hide på alle sadler på product view
+    document.querySelectorAll(".handle").forEach(handle => {
+      handle.classList.add("hide")
+    });
 
-    //Fjerne hide fra product view - så addOn vises
+    //Fjerne hide fra product view - så håndtag vises
     document.querySelector(`[data-feature='${handle}']`).classList.remove("hide");
 
-    // Sæt hide på anden saddel i productview
+    // Sæt hide på anden håndtag i productview
 
-    // Lav addOn element og tilføj til selected items liste
-    const handleElement = createAddOnElement(handle);
+    // Lav håndtag element og tilføj til selected items liste
+    const handleElement = createSelectedItemElement(handle);
     document.querySelector("#selected ul").append(handleElement);
 
     // Animation på tilføj til selected items
     animateAdd(target, handleElement);
+
+    // Animation på fjern selected item på i forvejen valgt 
+    animateRemove(handleElement,theFormerlyChosen);
   }
-
-  // Hvis saddel er off
-  else {
-    console.log(`${handle} is off`);
-
-    //Fjerne markering af valgte addON
-    target.classList.remove("chosen");
-
-    //Sætte hide på product view - skjule addOn
-    document.querySelector(`[data-feature='${handle}']`).classList.add("hide");
-
-    // Find addOn element og fjern fra selected items liste
-    const handleElement = document.querySelector(`#selected [data-feature='${handle}']`);
-
-    // Animation på fjern fra selected items
-    animateRemove(target, handleElement);
-    
-  }
-}
 
 
 function toggleAddOns(event){
@@ -206,7 +191,7 @@ function toggleAddOns(event){
     document.querySelector(`[data-feature='${addOn}']`).classList.remove("hide");
 
     // Lav addOn element og tilføj til selected items liste
-    const addOnElement = createAddOnElement(addOn);
+    const addOnElement = createSelectedItemElement(addOn);
     document.querySelector("#selected ul").append(addOnElement);
 
     // Animation på tilføj til selected items
@@ -250,13 +235,13 @@ function setLeatherColor(saddle1, saddle2, handle1, handle2, leatherColor) {
   handle2.style.fill = leatherColor;
 }
 
-// Lav addOn element
-function createAddOnElement(addOn){
+// Lav selectedItem element
+function createSelectedItemElement(item){
   const li = document.createElement("li");
-  li.dataset.feature = addOn;
+  li.dataset.feature = item;
 
   const img = document.createElement("img");
-  img.src = `${addOn}.png`;
+  img.src = `${item}.png`;
 
   li.append(img);
 
@@ -266,14 +251,11 @@ function createAddOnElement(addOn){
 // Animation
 
 function animateAdd(target, featureElement){
-  // create FLIP-animation to animate featureElement from img in target, to its intended position. Do it with normal animation or transition class!
     const clickFrame = target.getBoundingClientRect();
     const addedFrame = featureElement.getBoundingClientRect();
 
     const deltaX = clickFrame.left - addedFrame.left;
     const deltaY = clickFrame.top - addedFrame.top;
-    // const deltaWidth = clickFrame.width / addedFrame.width;
-    // const deltaHeight = clickFrame.height / addedFrame.height;
 
     featureElement.animate(
       [
@@ -288,13 +270,11 @@ function animateAdd(target, featureElement){
 }
 
 function animateRemove(target, featureElement){
-  // - create FLIP-animation to animate featureElement to img in target
   const clickFrame = target.getBoundingClientRect();
   const addedFrame = featureElement.getBoundingClientRect();
 
   const deltaX = clickFrame.left - addedFrame.left;
   const deltaY = clickFrame.top - addedFrame.top;
-  console.log(deltaY);
 
   const remove = featureElement.animate(
     [
