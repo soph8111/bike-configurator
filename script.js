@@ -10,7 +10,7 @@ const addOnFeatures = {
 };
 
 async function start() {
-  let response = await fetch("cykelconfiguator-01.svg");
+  let response = await fetch("cykelconfiguator.svg");
   let mySvg = await response.text();
   document.querySelector("#product-preview").innerHTML = mySvg;
   chooseOptions();
@@ -26,11 +26,6 @@ function chooseOptions() {
   const saddle2 = document.querySelector("#saddel_to path");
   const handle1 = document.querySelector("#styr_et path");
   const handle2 = document.querySelector("#styr_to path");
-
-  // Sætter start-farver for cykel
-  setBikeColor(frame, "#D6E5E8");
-  setWheelColor(frontWheel, rearWheel, "#ffffff");
-  setLeatherColor(saddle1, saddle2, handle1, handle2, "#b14e2c");
 
   // Vælg farve til stellet
   document.querySelectorAll(".bikecolor").forEach((color) => {
@@ -51,7 +46,6 @@ function chooseOptions() {
       //Sæt wheelColor til at være det klikkede elements farve
       setWheelColor(frontWheel, rearWheel, wheelColor);
     });
-  });
 
     //Vælg farve på håndtag og sadel
     document.querySelectorAll(".leathercolor").forEach((color) => {
@@ -65,7 +59,7 @@ function chooseOptions() {
 
     // ADD ONS
     document.querySelectorAll(".option").forEach((option) => option.addEventListener("click", toggleAddOns));
-  };
+  });
 
   function toggleAddOns(event) {
     const target = event.currentTarget;
