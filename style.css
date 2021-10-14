@@ -12,10 +12,15 @@ body {
   display: none;
 }
 
+#product-preview {
+  max-width: 70vw;
+  margin: auto;
+}
+
 #selected ul {
   list-style-type: none;
   align-self: center;
-  margin-top: 10px;
+  margin-top: 2vw;
 }
 
 #selected ul li {
@@ -44,17 +49,20 @@ svg {
   /* margin-left: 16px; */
   margin-bottom: 25px;
   margin-top: 8px;
-  font-family: "Marcellus", serif;
-  color: #9ea89e;
+  font-family: "Poiret One", cursive;
+  color: #6b836b;
   font-size: 1.1rem;
 }
 
 #selected ul {
   list-style-type: none;
-  align-self: center;
   margin-top: -23px;
   margin-left: -29px;
+  display: flex;
+  align-items: center;
+  gap: 1vw;
 }
+
 #selected ul li img {
   width: 50px;
 }
@@ -63,7 +71,7 @@ svg {
   margin-top: 15px;
   border-radius: 40px;
   background: #f2ebe2;
-  padding: 20px;
+  padding: 20px 20px 0 20px;
   box-shadow: var(--box-shadow);
   height: 340px;
   overflow-y: scroll;
@@ -102,9 +110,10 @@ figure {
   height: 30px;
   border-radius: 50%;
   margin-right: 5px;
+  box-shadow: var(--box-shadow);
 }
 .chosen {
-  border: 4px solid #9ea89e;
+  border: 3px solid #9ea89e;
   border-radius: 50%;
   margin: -4px;
 }
@@ -134,6 +143,11 @@ figure {
     width: 92%;
     border-radius: 30px;
     box-shadow: var(--box-shadow);
+  }
+
+  #selected ul {
+    margin-top: 1vw;
+    margin-left: 0;
   }
 
   #selected .heading {
@@ -168,7 +182,7 @@ figure {
   }
 
   #configurator {
-    padding: 15px 25px 15px 0;
+    padding: 12px 25px 5px 0;
   }
 
   #selected {
@@ -217,20 +231,55 @@ figure {
 } */
 
 nav {
-  position: absolute;
+  position: fixed;
+  top: 0.5vw;
+  left: 2vw;
+}
+
+nav a {
+  color: white;
+  font-family: "La Belle Aurore", cursive;
+  font-size: 2em;
+  text-decoration: none;
 }
 
 #splash {
   height: 100vh;
   width: 100vw;
   overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 #splash img {
   z-index: -1;
   height: 100%;
-  width: 100vw;
+  width: 100%;
   object-fit: cover;
+}
+
+#welcome {
+  margin: auto;
+  background-color: #b5c3af;
+  width: 100%;
+  height: 100%;
+}
+
+#welcome p {
+  text-align: center;
+  margin-top: 50%;
+  font-family: "Poiret One", cursive;
+  color: white;
+  font-size: 2rem;
+}
+
+img#arrow {
+  width: 3vw;
+  height: auto;
+  z-index: 1;
+  display: flex;
+  margin: auto;
+  margin-top: 300px;
 }
 
 /*---Bike animation---*/
@@ -247,7 +296,7 @@ nav {
   margin-top: 6vw;
   color: #9ea89e;
   font-size: 2rem;
-  font-family: "Marcellus", serif;
+  font-family: "Poiret One", cursive;
 }
 
 .bike {
@@ -290,5 +339,5 @@ nav {
   text-decoration: none;
   color: #9ea89e;
   font-size: 1.5rem;
-  font-family: "Marcellus", serif;
+  font-family: "Poiret One", cursive;
 }
