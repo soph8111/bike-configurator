@@ -27,6 +27,8 @@ gsap
 function start() {
   console.log("start");
 
+  /*  steps(); */
+
   const properties = {
     duration: 800,
     iterations: Infinity,
@@ -43,3 +45,27 @@ function start() {
     gsap.to(window, { duration: 1, scrollTo: "#steps" });
   });
 }
+
+/* function steps() {
+  const left = gsap.utils.toArray(".left");
+  left.forEach((box) => {
+    gsap.from(box, {
+      x: -300,
+      scrollTrigger: {
+        trigger: box,
+        scrub: true,
+      },
+    });
+  });
+  const right = gsap.utils.toArray(".right");
+  console.log(window.innerWidth);
+  right.forEach((box) => {
+    gsap.from(box, {
+      x: window.innerWidth - 1000,
+      scrollTrigger: {
+        trigger: box,
+        scrub: true,
+      },
+    });
+  });
+} */
