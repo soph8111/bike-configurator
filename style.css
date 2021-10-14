@@ -5,7 +5,6 @@
 body {
   background-color: #e0d6ca;
   margin: 0;
-  overflow-x: hidden;
 }
 
 /* CONFIGURATOR */
@@ -114,6 +113,23 @@ figure {
 
 /* Front Page */
 
+/* nav {
+  position: absolute;
+}
+
+#splash {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+#splash img {
+  position: relative;
+  top: -45%;
+  z-index: -1;
+  width: 100%;
+} */
+
 nav {
   position: absolute;
 }
@@ -122,29 +138,31 @@ nav {
   height: 100vh;
   width: 100vw;
   overflow: hidden;
-  margin-bottom: 100px;
 }
 
 #splash img {
-  position: relative;
-  top: -45%;
   z-index: -1;
-  width: 100%;
+  height: 100%;
+  width: 100vw;
+  object-fit: cover;
 }
 
-/* .info {
-  height: 50vh;
+/* Bike animation */
+
+section svg {
+  height: 80vh;
+  width: 80vw;
+  margin: auto;
+  display: flex;
 }
 
-.bike {
-  position: relative;
+.bike h2 {
+  text-align: center;
+  margin: 6vw;
+  color: #9ea89e;
+  font-size: 2rem;
+  font-family: "Marcellus", serif;
 }
-
-.piece:not(.frame) {
-  position: absolute;
-  width: 100%;
-}
- */
 
 .bike {
   position: relative;
@@ -159,4 +177,32 @@ nav {
   position: absolute;
   bottom: 7vw;
   width: 100%;
+}
+
+/* button */
+
+#link_configur {
+  height: 100px;
+}
+
+.button {
+  width: 20vw;
+  height: 2vw;
+  border: 1px solid transparent;
+  border-radius: 25px;
+  padding: 2.5vw;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  background-color: #f2ebe2;
+  box-shadow: var(--box-shadow);
+  cursor: pointer;
+}
+
+.button a {
+  text-decoration: none;
+  color: #9ea89e;
+  font-size: 1.5rem;
+  font-family: "Marcellus", serif;
 }
