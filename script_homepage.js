@@ -17,4 +17,6 @@ gsap
   .from(".handle", { y: innerHeight * 1.5 })
   .from(".wheel1", { y: innerHeight * 1.5 })
   .from(".wheel2", { y: innerHeight * 1.5 })
-  .from(".addons", { y: innerHeight * 1.5 });
+  .from(".bell", { y: innerHeight * 1.5 })
+  .from(".basket", { y: innerHeight * 1.5 })
+  .from(".kickstand", { y: innerHeight * 1.5 });
