@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 209 146">
+  <g id="Layer_2" data-name="Layer 2">
+    <g id="saddel_to" style="isolation: isolate">
+      <image id="saddel_to_Image" data-name="saddel_to Image" width="209" height="146" xlink:href="saddle21.png"/>
+      <path d="M15,2c13.11-.08,25.43.68,35,3,9,2.17,21.33.07,28,2h44c16.33,0,32.26-.42,49,0,8,.92,16.45,3.22,25,5,4.77,2.42,7.84,7.33,11,14-8.12.43-22,3.47-34.88,6.73C158.32,36.22,145.77,40,143,41c-9.09,3.38-26.92,15.47-41,12C85.46,48.92,71.3,35.19,58,27L43,24c-2.21-1.09-4.48-4.88-7-6-7.67-3.4-18.1-2.9-26-6-.36-2.27-.22-1.51,0-5Z" fill="none" fill-rule="evenodd"/>
+      <g id="skygge_saddel_to_Image" data-name="skygge_saddel_to Image">
+        <image id="skygge_saddel_to_Image-2" data-name="skygge_saddel_to Image" width="198" height="52" transform="translate(9 2)" xlink:href="saddle22.png"/>
+      </g>
+    </g>
+  </g>
+</svg>
