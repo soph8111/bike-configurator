@@ -7,27 +7,9 @@ body {
   margin: 0;
 }
 
-/* CONFIGURATOR */
-
-#configurator {
-  display: grid;
-  grid-template-columns: auto 320px;
-  padding: 15px 25px 15px 0;
-}
-
-#left {
-  align-self: end;
-}
-
-#selected {
-  grid-area: features;
-  background-color: #f2ebe2;
-  height: 122px;
-  width: 92%;
-  border-radius: 30px;
-  margin: auto;
-  display: grid;
-  box-shadow: var(--box-shadow);
+/*---CONFIGURATOR---*/
+.hide {
+  display: none;
 }
 
 #selected ul {
@@ -43,47 +25,62 @@ body {
 #selected ul li img {
   width: 60px;
 }
-
-#selected .heading {
-  margin-left: 50px;
-  margin-bottom: 0;
+svg {
+  margin-bottom: 25px;
+  margin-top: 35px;
 }
-
-#right {
-  border-radius: 30px;
-  background: #f2ebe2;
-  padding: 20px;
+#selected {
+  grid-area: features;
+  background-color: #f2ebe2;
+  border-radius: 40px;
+  margin: auto;
+  display: grid;
   box-shadow: var(--box-shadow);
+  padding-left: 20px;
+  padding-right: 20px;
+  /* overflow-x: scroll; */
 }
-
-.picker {
-  margin-bottom: 30px;
-}
-
 .heading {
+  /* margin-left: 16px; */
+  margin-bottom: 25px;
+  margin-top: 8px;
   font-family: "Marcellus", serif;
   color: #9ea89e;
   font-size: 1.1rem;
+}
+
+#selected ul {
+  list-style-type: none;
+  align-self: center;
+  margin-top: -23px;
+  margin-left: -29px;
+}
+#selected ul li img {
+  width: 50px;
+}
+
+#right {
+  margin-top: 15px;
+  border-radius: 40px;
+  background: #f2ebe2;
+  padding: 20px;
+  box-shadow: var(--box-shadow);
+  height: 340px;
+  overflow-y: scroll;
 }
 
 .wrapper {
   display: flex;
   gap: 8px;
 }
-
-.wrapper div,
-.wrapper img {
-  cursor: pointer;
-}
-
 figure {
+  padding: 8px;
+  width: 35px;
+  height: 35px;
   margin: 0;
-  width: 60px;
-  height: 60px;
-  max-height: 60px;
-  min-width: 60px;
+  min-width: 35px;
+  max-height: 28px;
   display: grid;
-  padding: 7px;
 }
 
 .wrapper img {
@@ -92,26 +89,115 @@ figure {
   place-self: center;
   overflow: hidden;
 }
+
+.wrapper div,
+.wrapper img {
+  cursor: pointer;
+}
+
 .bikecolor,
 .leathercolor,
 .wheelcolor {
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   margin-right: 5px;
 }
-
-.hide {
-  display: none;
-}
-
 .chosen {
   border: 4px solid #9ea89e;
   border-radius: 50%;
   margin: -4px;
 }
+.picker {
+  margin-bottom: 30px;
+}
+#left {
+  align-self: end;
+}
+/* @media (min-width: 600px) {
+} */
+/* ---------------------------media 800px--------------------------- */
+@media (min-width: 800px) {
+  svg {
+    margin-bottom: 84px;
+  }
+  #configurator {
+    display: grid;
+    grid-template-columns: auto 320px;
+    padding: 10px 10px 10px 0;
+  }
 
-/* Front Page */
+  #selected {
+    padding-left: 0px;
+    padding-right: 0px;
+    height: 122px;
+    width: 92%;
+    border-radius: 30px;
+    box-shadow: var(--box-shadow);
+  }
+
+  #selected .heading {
+    margin-left: 38px;
+    margin-bottom: 0;
+  }
+
+  #right {
+    margin-top: 0px;
+    border-radius: 30px;
+    height: auto;
+  }
+
+  figure {
+    padding: 7px;
+    width: 38px;
+    height: 29px;
+  }
+
+  .bikecolor,
+  .leathercolor,
+  .wheelcolor {
+    width: 3.5vw;
+    height: 3.5vw;
+  }
+}
+
+/* ---------------------------media 1050px--------------------------- */
+@media (min-width: 1050px) {
+  svg {
+    margin-bottom: 0;
+  }
+
+  #configurator {
+    padding: 15px 25px 15px 0;
+  }
+
+  #selected {
+    height: 102px;
+    width: 96%;
+    border-radius: 37px;
+  }
+
+  #selected .heading {
+    margin-left: 50px;
+  }
+
+  figure {
+    margin: 0;
+    width: 60px;
+    height: 60px;
+    max-height: 60px;
+    min-width: 60px;
+    padding: 7px;
+  }
+  .bikecolor,
+  .leathercolor,
+  .wheelcolor {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/*---Front Page---*/
 
 /* nav {
   position: absolute;
@@ -147,7 +233,7 @@ nav {
   object-fit: cover;
 }
 
-/* Bike animation */
+/*---Bike animation---*/
 
 section svg {
   height: 80vh;
@@ -179,7 +265,7 @@ section svg {
   width: 100%;
 }
 
-/* button */
+/*---button---*/
 
 #link_configur {
   height: 100px;
