@@ -105,17 +105,20 @@ function chooseOptions(){
 }
 
 function toggleSaddle(event){
+  // Saddel der bliver klikket på
   const target = event.currentTarget;
   const saddle = target.dataset.feature;
+  
+   // Find oprindelige valgte saddel
+  let theSaddle = document.querySelector("#saddle_picker .chosen").dataset.feature ;
+  let theFormerlyChosen = document.querySelector(`#selected [data-feature='${theSaddle}']`)
    
   // Toggle saddle true/false
    if (saddle) {
     saddleFeatures[saddle] = !saddleFeatures[saddle];
   }
 
-    // Find oprindelige valgte saddel
-    let theSaddle = document.querySelector("#saddle_picker .chosen").dataset.feature ;
-    let theFormerlyChosen = document.querySelector(`#selected [data-feature='${theSaddle}']`)
+  if (saddle != theSaddle) {
 
     // Remove chosen 
     document.querySelectorAll(".saddle_option").forEach(saddle => {
@@ -146,47 +149,54 @@ function toggleSaddle(event){
      animateRemove(saddleElement,theFormerlyChosen);
 }
 
+  }
+
 function toggelHandle(event){
+
+  // Håndtag der er klikket på
   const target = event.currentTarget;
   const handle = target.dataset.feature;
+  
+  // Find oprindelige valgte håndtag
+  let theHandle = document.querySelector("#handle_picker .chosen").dataset.feature;
+  let theFormerlyChosen = document.querySelector(`#selected [data-feature='${theHandle}']`);
 
    // Toggle saddle true/false
    if (handle) {
     handleFeatures[handle] = !handleFeatures[handle];
   }
 
-  // Find oprindelige valgte håndtag
-  let theHandle = document.querySelector("#handle_picker .chosen").dataset.feature ;
-  let theFormerlyChosen = document.querySelector(`#selected [data-feature='${theHandle}']`)
-
-  // Remove chosen 
-  document.querySelectorAll(".handle_option").forEach(handle => {
-    handle.classList.remove("chosen");
-
-  });
+  if (handle != theHandle){
+    // Remove chosen 
+    document.querySelectorAll(".handle_option").forEach(handle => {
+      handle.classList.remove("chosen");
   
-    // Marker valgte håndtag
-    target.classList.add("chosen");
-
-    // Tilføj hide på alle sadler på product view
-    document.querySelectorAll(".handle").forEach(handle => {
-      handle.classList.add("hide")
     });
+    
+      // Marker valgte håndtag
+      target.classList.add("chosen");
+  
+      // Tilføj hide på alle sadler på product view
+      document.querySelectorAll(".handle").forEach(handle => {
+        handle.classList.add("hide")
+      });
+  
+      //Fjerne hide fra product view - så håndtag vises
+      document.querySelector(`[data-feature='${handle}']`).classList.remove("hide");
+  
+      // Sæt hide på anden håndtag i productview
+  
+      // Lav håndtag element og tilføj til selected items liste
+      const handleElement = createSelectedItemElement(handle);
+      document.querySelector("#selected ul").append(handleElement);
+  
+      // Animation på tilføj til selected items
+      animateAdd(target, handleElement);
+  
+      // Animation på fjern selected item på i forvejen valgt 
+      animateRemove(handleElement,theFormerlyChosen);
 
-    //Fjerne hide fra product view - så håndtag vises
-    document.querySelector(`[data-feature='${handle}']`).classList.remove("hide");
-
-    // Sæt hide på anden håndtag i productview
-
-    // Lav håndtag element og tilføj til selected items liste
-    const handleElement = createSelectedItemElement(handle);
-    document.querySelector("#selected ul").append(handleElement);
-
-    // Animation på tilføj til selected items
-    animateAdd(target, handleElement);
-
-    // Animation på fjern selected item på i forvejen valgt 
-    animateRemove(handleElement,theFormerlyChosen);
+  }
   }
 
 
