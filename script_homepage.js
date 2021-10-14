@@ -4,7 +4,7 @@ gsap
   .timeline({
     scrollTrigger: {
       trigger: ".frame",
-      start: "20vw center",
+      start: "20vw 35%",
       end: "bottom 85%",
       scrub: true,
       pin: true,
@@ -12,6 +12,7 @@ gsap
     },
   })
 
+  .from(".base", { y: innerHeight * 1.5 })
   .from(".saddle", { y: innerHeight * 1.5 })
   .from(".handle", { y: innerHeight * 1.5 })
   .from(".wheel1", { y: innerHeight * 1.5 })

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 160 103">
+  <g id="Layer_2" data-name="Layer 2">
+    <g id="styr_et" style="isolation: isolate">
+      <image id="styr_et_Image" data-name="styr_et Image" width="160" height="103" xlink:href="handle21.png"/>
+      <path d="M84,26h3c6,2.54,8.58,13.82,4,22-24.88,1.91-47.7,6.59-69,10a35.42,35.42,0,0,0,1-11c-.14-3.24-1.62-6.91-4-11,12.49-1.19,25.15-4,38-6C65.9,28.6,75.27,27.5,84,26Z" fill="none" fill-rule="evenodd"/>
+      <image id="skygge_styr_et_Image" data-name="skygge_styr_et Image" width="75" height="32" transform="translate(19 26)" xlink:href="handle22.png"/>
+    </g>
+  </g>
+</svg>
