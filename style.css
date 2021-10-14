@@ -234,6 +234,7 @@ nav {
   position: fixed;
   top: 0.5vw;
   left: 2vw;
+  z-index: 10;
 }
 
 nav a {
@@ -251,11 +252,10 @@ nav a {
   grid-template-columns: 1fr 1fr;
 }
 
-#splash img {
-  z-index: -1;
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
+#splash_image {
+  background-image: url("splash.jpg");
+  background-size: cover;
+  background-position: bottom;
 }
 
 #welcome {
@@ -267,19 +267,42 @@ nav a {
 
 #welcome p {
   text-align: center;
-  margin-top: 50%;
+  margin-top: 35%;
+  margin-bottom: 15%;
   font-family: "Poiret One", cursive;
   color: white;
   font-size: 2rem;
 }
 
 img#arrow {
-  width: 3vw;
+  width: 2vw;
   height: auto;
   z-index: 1;
   display: flex;
   margin: auto;
-  margin-top: 300px;
+  margin-top: 10vw;
+}
+
+/* icons */
+#symbols {
+  width: 100%;
+  padding: 2vw;
+  background-color: #6b836b;
+  display: flex;
+  align-items: center;
+  gap: 5vw;
+  justify-content: space-evenly;
+}
+
+#symbols span {
+  text-align-last: center;
+  font-family: "Poiret One", cursive;
+  color: white;
+  font-size: 1.2rem;
+}
+
+#symbols img {
+  width: 4vw;
 }
 
 /*---Bike animation---*/
@@ -295,8 +318,8 @@ img#arrow {
   text-align: center;
   margin-top: 6vw;
   color: #9ea89e;
-  font-size: 2rem;
-  font-family: "Poiret One", cursive;
+  font-size: 2.3rem;
+  font-family: "La Belle Aurore", cursive;
 }
 
 .bike {
@@ -321,23 +344,35 @@ img#arrow {
 }
 
 .button {
-  width: 20vw;
-  height: 2vw;
-  border: 1px solid transparent;
-  border-radius: 25px;
-  padding: 2.5vw;
+  width: 15vw;
+  height: 0.6vw;
+  border: 2px solid white;
+  border-radius: 50px;
+  padding: 2vw;
   display: flex;
   margin: auto;
   justify-content: center;
   align-items: center;
-  background-color: #f2ebe2;
+  background-color: #6b836b;
   box-shadow: var(--box-shadow);
   cursor: pointer;
 }
 
 .button a {
   text-decoration: none;
-  color: #9ea89e;
+  color: white;
   font-size: 1.5rem;
   font-family: "Poiret One", cursive;
+  text-align: center;
+}
+
+.button:hover {
+  border: 2px solid #8e9a89;
+  background-color: white;
+  transition: 0.2s ease-in-out;
+  transform: scale(1.1);
+}
+
+.button:hover a {
+  color: #8e9a89;
 }
