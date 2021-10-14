@@ -337,11 +337,14 @@ img#arrow {
   width: 100%;
 }
 
-/*---button---*/
-
+/* button section */
 #link_configur {
-  height: 100px;
+  padding: 5vw;
+  background-color: #b5c3af;
+  display: flex;
 }
+
+/*---button---*/
 
 .button {
   width: 15vw;
