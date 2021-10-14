@@ -281,28 +281,59 @@ img#arrow {
   display: flex;
   margin: auto;
   margin-top: 10vw;
+  cursor: pointer;
 }
 
-/* icons */
-#symbols {
-  width: 100%;
-  padding: 2vw;
-  background-color: #6b836b;
+/* Steps */
+#steps {
+  margin-top: 5vw;
+  display: grid;
+  gap: 6vw;
+}
+.steps {
   display: flex;
+  grid-template-columns: 1fr 1fr;
+}
+
+.steps .image {
+  width: 50vw;
+  display: flex;
+  gap: 4vw;
+  justify-content: center;
   align-items: center;
-  gap: 5vw;
-  justify-content: space-evenly;
 }
 
-#symbols span {
+.single svg,
+.single img {
+  width: 10vw;
+}
+
+.single svg:nth-child(2),
+.single img:nth-child(2) {
+  margin-top: -5vw;
+}
+
+.steps .how_to {
+  width: 30vw;
+  height: 20vw;
+  background: #f2ebe2;
+  margin: auto;
+}
+
+.steps h2 {
+  margin-top: -4vw;
+  margin-left: -4.5vw;
+  font-size: 5rem;
+  font-family: "La Belle Aurore", cursive;
+  color: #9ea89e;
+}
+
+.steps p {
   text-align-last: center;
+  margin-top: -4vw;
+  font-size: 2.3rem;
   font-family: "Poiret One", cursive;
-  color: white;
-  font-size: 1.2rem;
-}
-
-#symbols img {
-  width: 4vw;
+  color: #9ea89e;
 }
 
 /*---Bike animation---*/
@@ -333,8 +364,29 @@ img#arrow {
 
 .piece:not(.frame) {
   position: absolute;
-  bottom: 7vw;
   width: 100%;
+}
+
+/* icons */
+#symbols {
+  width: 100%;
+  padding: 2vw;
+  background-color: #6b836b;
+  display: flex;
+  align-items: center;
+  gap: 5vw;
+  justify-content: space-evenly;
+}
+
+#symbols span {
+  text-align-last: center;
+  font-family: "Poiret One", cursive;
+  color: white;
+  font-size: 1.2rem;
+}
+
+#symbols img {
+  width: 4vw;
 }
 
 /* button section */

@@ -8,11 +8,10 @@ gsap
   .timeline({
     scrollTrigger: {
       trigger: ".frame",
-      start: "top 35%",
-      end: "bottom 85%",
-      scrub: true,
-      pin: true,
-      markers: true,
+      start: "-100px 35%",
+      end: "70% 65%",
+      scrub: 1,
+      // markers: true,
     },
   })
 
@@ -27,6 +26,7 @@ gsap
 
 function start() {
   console.log("start");
+
   const properties = {
     duration: 800,
     iterations: Infinity,
@@ -38,4 +38,8 @@ function start() {
 
   const arrow = document.querySelector("#arrow");
   const animation = arrow.animate(keyframes, properties);
+
+  arrow.addEventListener("click", () => {
+    gsap.to(window, { duration: 1, scrollTo: "#steps" });
+  });
 }
